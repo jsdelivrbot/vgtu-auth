@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  - if (message)
+  h1 #{message}
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Login
+
+        // register form
+        form(name="regis" method='POST' action='/login' onsubmit="DoSubmit();")
+          div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='email', placeholder='name@email.com' name='email')
+          button.btn.btn-primary(type='submit') Login
+  a.foo_link(href='/register') Register

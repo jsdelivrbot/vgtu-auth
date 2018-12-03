@@ -1,0 +1,19 @@
+extends layout
+
+block content
+        h1.display-4.m-b-2 Challenging #{number} / 3
+        button #{a}
+        button #{b}
+        button #{c}
+        button #{d}
+        button #{e}
+
+        form(name="regis" method='POST' action='#{url}')
+          div.form-group
+          br
+          br
+          div.form-group
+            label(for='pw2') Result:
+            input#pw2.form-control(type='text' name='res')
+          br
+          button.btn.btn-primary(type='submit') Continue
