@@ -13,6 +13,14 @@ var SomeModelSchema = new Schema({
     email: String,
     password: String,
     challenge: String,
+	country: String,
+	language: String,
+	browser: Object,
+	os: Object,
+	accept: String,
+	hash: String,
+	device: Object
+
 });
 
 module.exports = mongoose.model('user', SomeModelSchema)

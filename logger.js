@@ -5,6 +5,8 @@ require('winston-email').Email;
  
 winston.emitErrs = true;
  
+
+
 var logger = new winston.Logger({
    // Alternatively: set to winston.config.syslog.levels
    exitOnError: false,
@@ -59,7 +61,7 @@ logger.init = function () {
    if (loggerConfig.emailTransportOptions)
       logger.addEmail( loggerConfig.emailTransportOptions );
 };
- 
+
 module.exports = logger;
 module.exports.stream = {
    write: function (message, encoding) {

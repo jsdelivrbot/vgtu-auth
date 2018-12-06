@@ -55,11 +55,11 @@ module.exports = {
          handleExceptions: true,
          level: 'alert',
          from: 'superAuthSystem@vgtu.lt',
-         to: 'louis.jurczyk@epitech.eu',
+         to: 'lo@epitech.eu',
          service: 'Gmail',
          auth: {
-            user: "oxdeadbeef123@gmail.com",
-            pass: 'deadbeef' // App specific password.
+            user: "oqsdxdeadbeef123@gmail.com",
+            pass: 'deadqsdbeef' // App specific password.
          },
          tags: ['VGTU AUTH']
       }

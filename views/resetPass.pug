@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  - if (message)
+  h1 #{message}
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Reset Password
+
+        // register form²
+        form(name="regis" method='POST' action='/changePass')
+          div.form-group
+            input#email.hidden(name='id' type="hidden" value=id)
+
+          p Enter a formula
+          button(type='button') a
+          button(type='button') b
+          button(type='button') c
+          button(type='button') d
+          button(type='button') e
+
+          p For example:
+            p a*b+c-4
+            p a+b-c/d*e
+
+          div.form-group
+            label(for='pw2') formula:
+            input#pw2.form-control(type='text' name='formula')
+          br
+          button.btn.btn-primary(type='submit') Change password
