@@ -21,13 +21,6 @@ var usersRouter = require('./routes/users');
 var app = express();
 var Fingerprint = require('express-fingerprint')
 
-
-
-
-
-
-
-
 var logger = require('./logger')
 logger.init();
 logger.info('Server restarting', {"toto": "lol"})
@@ -49,15 +42,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-const hsts = require('hsts')
-
-// Sets "Strict-Transport-Security: max-age=5184000; includeSubDomains".
-app.use(hsts({
-  maxAge: 1234000,
-  setIf: function (req, res) {
-    return req.secure || (req.headers['x-forwarded-proto'] === 'https')
-  }
-}))
 
 
 var expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
@@ -128,8 +112,10 @@ app.use(function(req, res, next) {
 
 var http = require('http');
 http.createServer(function (req, res) {
+    if (req.socket.localPort == 80){
     res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
     res.end();
+}
 }).listen(80);
 
 app.listen(80)

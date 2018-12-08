@@ -320,11 +320,12 @@ router.post('/changePass', function(req, res, next){
 	})
 	console.log(req.body)
 });
-/*
+
 router.get('*', function(req,res,next) {
 
 logger.info({ip: req.ip, type: "get_undefined", info:req.url})
-res.redirect('/');
+	res.status(200).send('not found')
+//res.redirect('/');
 })
-*/
+
 module.exports = router;
